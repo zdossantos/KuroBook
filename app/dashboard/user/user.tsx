@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { auth } from '@/app/server/auth';
-import { redirect } from 'next/navigation';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import {
   DropdownMenu, 
@@ -11,19 +11,22 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import Link from 'next/link';
-import { headers } from "next/headers"
+import { SignOut } from './sign-out';
 
-
+// Composant côté serveur pour récupérer les données
 export async function User() {
-  const session = await auth.api.getSession({
-    headers: await headers()
-});
+  const session = await auth.api.getSession(
+    {
+      headers: await headers()
+    }
+  );
   const user = session?.user;
 
-  // If not authenticated, you could redirect or just show the Sign In option
-  // If you want to force login, uncomment below:
-  // if (!user) redirect('/login');
+  return <UserClient user={user} />;
+}
 
+// Composant côté client pour gérer l'interactivité
+export function UserClient({ user }: { user: any }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -49,18 +52,7 @@ export async function User() {
         <DropdownMenuSeparator />
         {user ? (
           <DropdownMenuItem>
-            <form
-            action={async () => {
-              'use server';
-              // Use better-auth's signOut method, which may require a redirect
-              await auth.api.signOut({
-                headers: await headers()
-              });
-              redirect('/login');
-            }}
-          >
-            <button type="submit">Sign Out</button>
-          </form>
+            <SignOut />
           </DropdownMenuItem>
         ) : (
           <DropdownMenuItem>
