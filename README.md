@@ -14,35 +14,60 @@ This is a starter template using the following stack:
 
 - Framework - [Next.js (App Router)](https://nextjs.org)
 - Language - [TypeScript](https://www.typescriptlang.org)
-- Auth - [Auth.js](https://authjs.dev)
+
+- Secure shareable links for event/venue reservations
+- Granular control for administrators (activation/deactivation, user blocking, role management)
+- Easy booking process for registered users
+- Comprehensive monitoring and basic administration features
+
+## Features
+
+- User authentication and authorization
+- Event and location management with secure shareable links
+- Booking system with calendar integration
+- Admin dashboard with user management and analytics
+- Role-based access control
+- Responsive design
+
+## Tech Stack
+
+- Framework - [Next.js (App Router)](https://nextjs.org)
+- Language - [TypeScript](https://www.typescriptlang.org)
+- Auth - [Better Auth](https://better-auth.com)
 - Database - [Postgres](https://vercel.com/postgres)
-- Deployment - [Vercel](https://vercel.com/docs/concepts/next.js/overview)
 - Styling - [Tailwind CSS](https://tailwindcss.com)
 - Components - [Shadcn UI](https://ui.shadcn.com/)
 - Analytics - [Vercel Analytics](https://vercel.com/analytics)
 - Formatting - [Prettier](https://prettier.io)
-
-This template uses the new Next.js App Router. This includes support for enhanced layouts, colocation of components, tests, and styles, component-level data fetching, and more.
+- Drizzle ORM [Drizzle](https://orm.drizzle.team)
+- Next Intl [Next Intl](https://next-intl.dev)
+- React Hook Form [React Hook Form](https://react-hook-form.com)
+- Zod [Zod](https://zod.dev)
 
 ## Getting Started
 
-During the deployment, Vercel will prompt you to create a new Postgres database. This will add the necessary environment variables to your project.
+### Prerequisites
 
-Inside the Vercel Postgres dashboard, create a table based on the schema defined in this repository.
+- Node.js (v22 or higher)
+- PostgreSQL
+- npm or yarn
 
-```
-CREATE TYPE status AS ENUM ('active', 'inactive', 'archived');
+### Installation
 
-CREATE TABLE products (
-  id SERIAL PRIMARY KEY,
-  image_url TEXT NOT NULL,
-  name TEXT NOT NULL,
-  status status NOT NULL,
-  price NUMERIC(10, 2) NOT NULL,
-  stock INTEGER NOT NULL,
-  available_at TIMESTAMP NOT NULL
-);
-```
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+3. Create a `.env` file with your environment variables
+4. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
 Then, uncomment `app/api/seed.ts` and hit `http://localhost:3000/api/seed` to seed the database with products.
 
