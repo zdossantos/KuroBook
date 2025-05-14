@@ -1,7 +1,22 @@
 "use server";
 import { auth } from '@/app/server/auth';
 import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
+
+type SignUpProps = {
+  name: string;
+  email: string;
+  password: string;
+}
+
+export const signUp = async ({ name, email, password }: SignUpProps) => {
+    return await auth.api.signUpEmail({
+      body: {
+        name,
+        email,
+        password,
+      }
+    });
+}
 
 type SignInProps = {
   email: string;
@@ -24,14 +39,8 @@ export const getUser = async () => {
 }
 
 
-export async function signOutAction() {
-  try {
+export async function signOut() {
     await auth.api.signOut({
       headers: await headers()
     });
-    redirect('/');
-  } catch (error) {
-    console.error('Error during sign out:', error);
-    throw error;
-  }
 }

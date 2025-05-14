@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { signIn } from "@/app/actions/auth";
+import { useRouter } from "next/navigation";
 
 const loginSchema = z.object({
     email: z.string().email('Invalid email address'),
@@ -14,31 +15,25 @@ const loginSchema = z.object({
 });
 
 export default function LoginForm() {
+    const router = useRouter();
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors, isSubmitting },
+        setError
     } = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema)
     });
 
     const onSubmit = async (data: z.infer<typeof loginSchema>) => {
         try {
-            const result = await signIn({
+            await signIn({
                 email: data.email,
                 password: data.password
             });
-            if (result.token) {
-                window.location.href = '/';
-            } else {
-                throw new Error('Login failed');
-            }
+            router.push('/');
         } catch (error) {
-            console.error('Error during login:', error);
-            if (error instanceof Error) {
-                console.error('Error message:', error.message);
-            }
-            throw error;
+            setError('email', { message: 'Invalid email or password' });
         }
     };
 
@@ -68,7 +63,7 @@ export default function LoginForm() {
                     <p className="text-sm text-red-500">{errors.password.message}</p>
                 )}
             </div>
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
                 Login
             </Button>
         </form>

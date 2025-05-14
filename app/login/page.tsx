@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Card,
   CardContent,
@@ -6,15 +8,9 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
-import LoginForm from './login-form';
-import { redirect } from 'next/navigation';
-import { getUser } from '@/app/actions/auth';
+import LoginForm from '@/components/auth/login-form';
 
-export default async function LoginPage() {
-  const user = await getUser();
-  if (user) {
-    redirect('/');
-  }
+export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex justify-center items-center p-8">

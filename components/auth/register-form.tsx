@@ -6,6 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { signUp } from "@/app/actions/auth";
+import { useRouter } from "next/navigation";
 
 const registerSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -15,25 +17,23 @@ const registerSchema = z.object({
 
 type RegisterFormData = z.infer<typeof registerSchema>;
 
-type RegisterFormProps = {
-  registerAction: (data: RegisterFormData) => Promise<void>
-}
-
-export default function RegisterForm({ registerAction }: RegisterFormProps) {
+export default function RegisterForm() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting }
+    formState: { errors, isSubmitting },
+    setError
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema)
   });
 
   const onSubmit = async (data: RegisterFormData) => {
     try {
-      await registerAction(data);
-    } catch (error) {
-      console.error('Registration error:', error);
-      // You could set form error state here if needed
+      await signUp(data);
+      router.push('/');
+    } catch (error: any) {
+      setError('email', { message: 'This email is already registered' });
     }
   };
 
