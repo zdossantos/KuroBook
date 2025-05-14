@@ -40,7 +40,57 @@
         }
       },
       "no_account": "Vous n'avez pas de compte ?",
-      "register": "S'inscrire"
+      "register": "S'inscrire",
+      "forgot_password": "Mot de passe oublié ?",
+      "reset_password": "Réinitialiser le mot de passe"
+    },
+    "forgotPassword": {
+      "title": "Mot de passe oublié",
+      "description": "Entrez votre adresse email pour réinitialiser votre mot de passe.",
+      "emailLabel": "Email",
+      "fields": {
+        "email": "Email"
+      },
+      "errors": {
+        "email": {
+          "invalid": "Adresse email invalide",
+          "error": "Oups ! Une erreur s’est produite pendant l’envoi du lien de réinitialisation."
+        }
+      },
+      "submit": "Envoyer le lien de réinitialisation"
+    },
+    "resetPassword": {
+      "title": "Réinitialisation du mot de passe",
+      "description": "Entrez votre nouveau mot de passe.",
+      "passwordLabel": "Mot de passe",
+      "confirmPasswordLabel": "Confirmer le mot de passe",
+      "passwordPlaceholder": "Entrez votre nouveau mot de passe",
+      "confirmPasswordPlaceholder": "Confirmer votre nouveau mot de passe",
+      "fields": {
+        "password": "Mot de passe",
+        "confirmPassword": "Confirmer le mot de passe"
+      },
+      "errors": {
+        "min": "Le mot de passe doit contenir au moins 8 caractères",
+        "max": "Le mot de passe ne doit pas dépasser 20 caractères",
+        "doesNotMatch": "Les mots de passe ne correspondent pas",
+        "uppercase": "Le mot de passe doit contenir au moins une lettre majuscule",
+        "lowercase": "Le mot de passe doit contenir au moins une lettre minuscule",
+        "number": "Le mot de passe doit contenir au moins un chiffre",
+        "special": "Le mot de passe doit contenir au moins un caractère spécial"
+      },
+      "submitButton": "Réinitialiser le mot de passe"
+    }
+  },
+  "email": {
+    "passwordReset": {
+      "subject": "Réinitialisation de votre mot de passe",
+      "title": "Demande de réinitialisation du mot de passe",
+      "greeting": "Bonjour {name},",
+      "message": "Vous avez demandé à réinitialiser votre mot de passe. Cliquez sur le bouton ci-dessous pour définir un nouveau mot de passe.",
+      "button": "Réinitialiser le mot de passe",
+      "expiration": "Ce lien expirera dans 10 minutes.",
+      "footer": "Si vous n'avez pas demandé de réinitialisation de mot de passe, vous pouvez ignorer cet email."
     }
   }
 }

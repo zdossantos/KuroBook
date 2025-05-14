@@ -24,7 +24,10 @@ export default function LoginPage() {
         <CardContent>
           <LoginForm />
         </CardContent>
-        <CardFooter>
+        <CardFooter className='flex flex-col items-start gap-2'>
+          <p className="text-sm text-muted-foreground">
+            {t('forgot_password')} <a href="/forgot-password" className="text-primary hover:underline">{t('reset_password')}</a>
+          </p>
           <p className="text-sm text-muted-foreground">
             {t('no_account')} <a href="/register" className="text-primary hover:underline">{t('register')}</a>
           </p>

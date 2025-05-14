@@ -1,6 +1,7 @@
 "use server";
 import { auth } from '@/app/server/auth';
 import { headers } from 'next/headers';
+import { getLocale } from 'next-intl/server';
 
 type SignUpProps = {
   name: string;
@@ -42,5 +43,25 @@ export const getUser = async () => {
 export async function signOut() {
     await auth.api.signOut({
       headers: await headers()
+    });
+}
+
+export const forgotPassword = async ({ email }: { email: string }) => {
+    const locale = await getLocale();
+    
+    return await auth.api.forgetPassword({
+        body: {
+            email,
+            redirectTo: `/${locale}/reset-password`,
+        },
+    });
+}
+
+export const resetPassword = async ({ newPassword, token }: { newPassword: string; token?: string }) => {
+    return await auth.api.resetPassword({
+        body: {
+            newPassword,
+            token,
+        }
     });
 }
