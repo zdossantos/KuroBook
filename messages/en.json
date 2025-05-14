@@ -1,0 +1,46 @@
+{
+  "auth": {
+    "register": {
+      "title": "Create Account",
+      "description": "Enter your details to create an account.",
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "password": "Password"
+      },
+      "errors": {
+        "name": {
+          "min": "Name must be at least 2 characters"
+        },
+        "email": {
+          "invalid": "Invalid email address",
+          "exists": "This email is already registered"
+        },
+        "password": {
+          "min": "Password must be at least 8 characters",
+          "max": "Password must be at most 20 characters",
+          "uppercase": "Password must contain at least one uppercase letter",
+          "lowercase": "Password must contain at least one lowercase letter",
+          "number": "Password must contain at least one number",
+          "special": "Password must contain at least one special character"
+        }
+      }
+    },
+    "login": {
+      "title": "Login",
+      "description": "Enter your details to login.",
+      "fields": {
+        "email": "Email",
+        "password": "Password"
+      },
+      "errors": {
+        "email": {
+          "invalid": "Invalid email address",
+          "credentials": "Invalid email or password"
+        }
+      },
+      "no_account": "Don't have an account?",
+      "register": "Register"
+    }
+  }
+}

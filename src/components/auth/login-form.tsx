@@ -8,25 +8,16 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { signIn } from "@/app/actions/auth";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const loginSchema = z.object({
-    email: z.string().email('Invalid email address'),
-    password: z.string().min(8, { message: 'Password must be at least 8 characters' })
-    .max(20, { message: 'Password must be at most 20 characters' })
-    .refine((password) => /[A-Z]/.test(password), {
-      message: 'Password must contain at least one uppercase letter',
-    })
-    .refine((password) => /[a-z]/.test(password), {
-      message: 'Password must contain at least one lowercase letter',
-    })
-    .refine((password) => /[0-9]/.test(password), { message: 'Password must contain at least one number' })
-    .refine((password) => /[!@#$%^&*]/.test(password), {
-      message: 'Password must contain at least one special character',
-    })
+    email: z.string().email('auth.login.errors.email.invalid'),
+    password: z.string()
 });
 
 export default function LoginForm() {
     const router = useRouter();
+    const t = useTranslations('auth.login');
     const {
         register,
         handleSubmit,
@@ -44,14 +35,14 @@ export default function LoginForm() {
             });
             router.push('/');
         } catch (error) {
-            setError('email', { message: 'Invalid email or password' });
+            setError('email', { message: t('errors.email.credentials') });
         }
     };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{t('fields.email')}</Label>
                 <Input
                     id="email"
                     type="email"
@@ -63,7 +54,7 @@ export default function LoginForm() {
                 )}
             </div>
             <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">{t('fields.password')}</Label>
                 <Input
                     id="password"
                     type="password"
@@ -75,7 +66,7 @@ export default function LoginForm() {
                 )}
             </div>
             <Button type="submit" className="w-full" disabled={isSubmitting}>
-                Login
+                {t('title')}
             </Button>
         </form>
     );

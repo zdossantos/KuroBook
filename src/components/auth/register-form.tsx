@@ -8,17 +8,30 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { signUp } from "@/app/actions/auth";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const registerSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
-  password: z.string().min(6, 'Password must be at least 6 characters')
+  name: z.string().min(2, 'auth.register.errors.name.min'),
+  email: z.string().email('auth.register.errors.email.invalid'),
+  password: z.string().min(8, { message: 'auth.register.errors.password.min' })
+  .max(20, { message: 'auth.register.errors.password.max' })
+  .refine((password) => /[A-Z]/.test(password), {
+    message: 'auth.register.errors.password.uppercase',
+  })
+  .refine((password) => /[a-z]/.test(password), {
+    message: 'auth.register.errors.password.lowercase',
+  })
+  .refine((password) => /[0-9]/.test(password), { message: 'auth.register.errors.password.number' })
+  .refine((password) => /[!@#$%^&*+]/.test(password), {
+    message: 'auth.register.errors.password.special',
+  })
 });
 
 type RegisterFormData = z.infer<typeof registerSchema>;
 
 export default function RegisterForm() {
   const router = useRouter();
+  const t = useTranslations('auth.register');
   const {
     register,
     handleSubmit,
@@ -33,14 +46,14 @@ export default function RegisterForm() {
       await signUp(data);
       router.push('/');
     } catch (error: any) {
-      setError('email', { message: 'This email is already registered' });
+      setError('email', { message: t('errors.email.exists') });
     }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="name">Name</Label>
+        <Label htmlFor="name">{t('fields.name')}</Label>
         <Input
           id="name"
           type="text"
@@ -53,7 +66,7 @@ export default function RegisterForm() {
         )}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">{t('fields.email')}</Label>
         <Input
           id="email"
           type="email"
@@ -66,7 +79,7 @@ export default function RegisterForm() {
         )}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password">{t('fields.password')}</Label>
         <Input
           id="password"
           type="password"
@@ -79,7 +92,7 @@ export default function RegisterForm() {
         )}
       </div>
       <Button type="submit" className="w-full" disabled={isSubmitting}>
-        Create Account
+        {t('title')}
       </Button>
     </form>
   );

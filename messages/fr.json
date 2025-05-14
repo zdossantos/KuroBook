@@ -1,0 +1,46 @@
+{
+  "auth": {
+    "register": {
+      "title": "Créer un compte",
+      "description": "Entrez vos informations pour créer un compte.",
+      "fields": {
+        "name": "Nom",
+        "email": "Email",
+        "password": "Mot de passe"
+      },
+      "errors": {
+        "name": {
+          "min": "Le nom doit contenir au moins 2 caractères"
+        },
+        "email": {
+          "invalid": "Adresse email invalide",
+          "exists": "Cette adresse email est déjà utilisée"
+        },
+        "password": {
+          "min": "Le mot de passe doit contenir au moins 8 caractères",
+          "max": "Le mot de passe ne doit pas dépasser 20 caractères",
+          "uppercase": "Le mot de passe doit contenir au moins une lettre majuscule",
+          "lowercase": "Le mot de passe doit contenir au moins une lettre minuscule",
+          "number": "Le mot de passe doit contenir au moins un chiffre",
+          "special": "Le mot de passe doit contenir au moins un caractère spécial"
+        }
+      }
+    },
+    "login": {
+      "title": "Connexion",
+      "description": "Entrez vos identifiants pour vous connecter.",
+      "fields": {
+        "email": "Email",
+        "password": "Mot de passe"
+      },
+      "errors": {
+        "email": {
+          "invalid": "Adresse email invalide",
+          "credentials": "Email ou mot de passe invalide"
+        }
+      },
+      "no_account": "Vous n'avez pas de compte ?",
+      "register": "S'inscrire"
+    }
+  }
+}
