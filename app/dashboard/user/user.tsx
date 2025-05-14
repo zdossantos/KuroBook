@@ -12,15 +12,11 @@ import {
 } from '@/components/ui/dropdown-menu';
 import Link from 'next/link';
 import { SignOut } from './sign-out';
+import { getUser } from '@/app/actions/auth';
 
 // Composant côté serveur pour récupérer les données
 export async function User() {
-  const session = await auth.api.getSession(
-    {
-      headers: await headers()
-    }
-  );
-  const user = session?.user;
+  const user = await getUser();
 
   return <UserClient user={user} />;
 }

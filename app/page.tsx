@@ -1,4 +1,4 @@
-import { getUser } from "./server/db/user/get-user";
+import { getUser } from "./actions/auth";
 
 export default async function Page() {
     const user = await getUser();

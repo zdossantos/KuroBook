@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/card';
 import LoginForm from './login-form';
 import { redirect } from 'next/navigation';
-import { getUser } from '@/app/server/db/user/get-user';
+import { getUser } from '@/app/actions/auth';
 
 export default async function LoginPage() {
   const user = await getUser();
