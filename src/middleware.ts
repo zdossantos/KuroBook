@@ -37,8 +37,7 @@ export async function middleware(request: NextRequest) {
   // Gérer la localisation
   const handleI18nRouting = createMiddleware({
     locales,
-    defaultLocale,
-    localePrefix: 'as-needed',
+    defaultLocale
   });
 
   return handleI18nRouting(request);
