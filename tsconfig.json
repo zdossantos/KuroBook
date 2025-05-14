@@ -16,9 +16,10 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/lib/*": ["lib/*"],
-      "@/app/*": ["app/*"]
+      "@/components/*": ["src/components/*"],
+      "@/lib/*": ["src/lib/*"],
+      "@/app/*": ["src/app/*"],
+      "@/i18n/*": ["src/i18n/*"]
     },
     "plugins": [
       {
