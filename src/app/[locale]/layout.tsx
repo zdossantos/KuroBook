@@ -4,7 +4,8 @@ import { Analytics } from '@vercel/analytics/react';
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
- 
+import { Toaster } from "@/components/ui/sonner"
+
 export const metadata = {
   title: 'Next.js App Router + BetterAuth + Tailwind CSS',
   description:
@@ -28,6 +29,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <Toaster />
       </body>
       <Analytics />
     </html>

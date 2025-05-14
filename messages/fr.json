@@ -57,7 +57,8 @@
           "error": "Oups ! Une erreur s’est produite pendant l’envoi du lien de réinitialisation."
         }
       },
-      "submit": "Envoyer le lien de réinitialisation"
+      "submit": "Envoyer le lien de réinitialisation",
+      "success": "Un lien de réinitialisation a été envoyé à votre adresse email."
     },
     "resetPassword": {
       "title": "Réinitialisation du mot de passe",
@@ -79,7 +80,8 @@
         "number": "Le mot de passe doit contenir au moins un chiffre",
         "special": "Le mot de passe doit contenir au moins un caractère spécial"
       },
-      "submitButton": "Réinitialiser le mot de passe"
+      "submitButton": "Réinitialiser le mot de passe",
+      "success": "Le mot de passe a été réinitialisé avec succès"
     }
   },
   "email": {

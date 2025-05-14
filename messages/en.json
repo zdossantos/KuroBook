@@ -57,7 +57,8 @@
           "error": "Oops! Something went wrong while sending the reset email"
         }
       },
-      "submit": "Send Reset Password Link"
+      "submit": "Send Reset Password Link",
+      "success": "Reset password link sent successfully"
     },
     "resetPassword": {
       "title": "Reset Password",
@@ -79,7 +80,8 @@
         "number": "Password must contain at least one number",
         "special": "Password must contain at least one special character"
       },
-      "submitButton": "Reset Password"
+      "submitButton": "Reset Password",
+      "success": "Password reset successfully"
     }
   },
   "email": {

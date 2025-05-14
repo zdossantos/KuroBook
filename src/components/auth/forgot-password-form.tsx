@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useTranslations } from 'next-intl';
 import { forgotPassword } from '@/app/actions/auth';
+import { toast } from "sonner"
 
 const formSchema = z.object({
   email: z.string().email('Email invalide'),
@@ -28,8 +29,10 @@ export default function ForgotPasswordForm() {
   const handleSubmit = async (data: FormValues) => {
     try {
       await forgotPassword(data);
+      toast.success(t('success'));
     } catch (err) {
       form.setError('email', { message: t('errors.email.error') });
+      toast.error(t('errors.email.error'));
     }
   };
 

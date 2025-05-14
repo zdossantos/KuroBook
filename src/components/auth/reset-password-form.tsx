@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { useTranslations } from 'next-intl';
 import { resetPassword } from '@/app/actions/auth';
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 const formSchema = z.object({
   password: z.string().min(8, { message: 'min' })
@@ -66,10 +67,11 @@ export default function ResetPasswordForm({ token }: ResetPasswordFormProps) {
 
   const handleSubmit = async (data: FormValues) => {
     try {
-      
       await resetPassword({ token, newPassword: data.confirmPassword });
+      toast.success(t('success'));
       router.push('/login');
     } catch (err) {
+      toast.error(t('errors.generic'));
       form.setError('root', { message: t('errors.generic') });
     }
   };
