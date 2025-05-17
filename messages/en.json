@@ -1,5 +1,7 @@
 {
   "auth": {
+    "alreadyHaveAccount": "Already have an account? ",
+    "signIn": "Sign in",
     "register": {
       "title": "Create Account",
       "description": "Enter your details to create an account.",
