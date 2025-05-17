@@ -22,7 +22,7 @@ export const auth = betterAuth({
   },
   emailAndPassword: {
     enabled: true,
-    resetPasswordTokenExpiresIn: 5 * 60,
+    resetPasswordTokenExpiresIn: 10 * 60,
     sendResetPassword: async (options) => {
       const { user: { email, name }, url } = options;
       try {
