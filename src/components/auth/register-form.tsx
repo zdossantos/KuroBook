@@ -11,19 +11,19 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
 const registerSchema = z.object({
-  name: z.string().min(2, 'auth.register.errors.name.min'),
-  email: z.string().email('auth.register.errors.email.invalid'),
-  password: z.string().min(8, { message: 'auth.register.errors.password.min' })
-  .max(20, { message: 'auth.register.errors.password.max' })
+  name: z.string().min(2, 'errors.name.min'),
+  email: z.string().email('errors.email.invalid'),
+  password: z.string().min(8, { message: 'errors.password.min' })
+  .max(20, { message: 'errors.password.max' })
   .refine((password) => /[A-Z]/.test(password), {
-    message: 'auth.register.errors.password.uppercase',
+    message: 'errors.password.uppercase',
   })
   .refine((password) => /[a-z]/.test(password), {
-    message: 'auth.register.errors.password.lowercase',
+    message: 'errors.password.lowercase',
   })
-  .refine((password) => /[0-9]/.test(password), { message: 'auth.register.errors.password.number' })
+  .refine((password) => /[0-9]/.test(password), { message: 'errors.password.number' })
   .refine((password) => /[!@#$%^&*+]/.test(password), {
-    message: 'auth.register.errors.password.special',
+    message: 'errors.password.special',
   })
 });
 
@@ -62,7 +62,7 @@ export default function RegisterForm() {
           disabled={isSubmitting}
         />
         {errors.name && (
-          <p className="text-sm text-red-500">{errors.name.message}</p>
+          <p className="text-sm text-red-500">{t(errors.name.message as string)}</p>
         )}
       </div>
       <div className="space-y-2">
@@ -75,7 +75,7 @@ export default function RegisterForm() {
           disabled={isSubmitting}
         />
         {errors.email && (
-          <p className="text-sm text-red-500">{errors.email.message}</p>
+          <p className="text-sm text-red-500">{t(errors.email.message as string)}</p>
         )}
       </div>
       <div className="space-y-2">
@@ -88,7 +88,7 @@ export default function RegisterForm() {
           disabled={isSubmitting}
         />
         {errors.password && (
-          <p className="text-sm text-red-500">{errors.password.message}</p>
+          <p className="text-sm text-red-500">{t(errors.password.message as string)}</p>
         )}
       </div>
       <Button type="submit" className="w-full" disabled={isSubmitting}>

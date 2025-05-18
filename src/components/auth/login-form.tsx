@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
 const loginSchema = z.object({
-    email: z.string().email('auth.login.errors.email.invalid'),
+    email: z.string().email('errors.email.invalid'),
     password: z.string()
 });
 
@@ -50,7 +50,7 @@ export default function LoginForm() {
                     className={errors.email ? 'border-red-500' : ''}
                 />
                 {errors.email && (
-                    <p className="text-sm text-red-500">{errors.email.message}</p>
+                    <p className="text-sm text-red-500">{t(errors.email.message as string)}</p>
                 )}
             </div>
             <div className="space-y-2">
@@ -62,7 +62,7 @@ export default function LoginForm() {
                     className={errors.password ? 'border-red-500' : ''}
                 />
                 {errors.password && (
-                    <p className="text-sm text-red-500">{errors.password.message}</p>
+                    <p className="text-sm text-red-500">{t(errors.password.message as string)}</p>
                 )}
             </div>
             <Button type="submit" className="w-full" disabled={isSubmitting}>
