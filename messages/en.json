@@ -1,5 +1,9 @@
 {
   "auth": {
+    "layout": {
+      "welcomeTitle": "Welcome to KuroBook",
+      "welcomeSubtitle": "Reserve your slots, share your events, Kuro takes care of the rest."
+    },
     "alreadyHaveAccount": "Already have an account? ",
     "signIn": "Sign in",
     "register": {

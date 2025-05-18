@@ -1,5 +1,9 @@
 {
   "auth": {
+    "layout": {
+      "welcomeTitle": "Bienvenue sur KuroBook",
+      "welcomeSubtitle": "Réservez vos créneaux, partagez vos événements, Kuro s'occupe du reste."
+    },
     "alreadyHaveAccount": "Vous avez déjà un compte ? ",
     "signIn": "Se connecter",
     "register": {
@@ -56,7 +60,7 @@
       "errors": {
         "email": {
           "invalid": "Adresse email invalide",
-          "error": "Oups ! Une erreur s’est produite pendant l’envoi du lien de réinitialisation."
+          "error": "Oups ! Une erreur s'est produite pendant l'envoi du lien de réinitialisation."
         }
       },
       "submit": "Envoyer le lien de réinitialisation",

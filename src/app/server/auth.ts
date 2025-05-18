@@ -28,6 +28,9 @@ export const auth = betterAuth({
       try {
         const locale = await getLocale();
         const templates = await import('@/app/server/email/templates');
+        if(process.env.NODE_ENV === 'development') {
+          console.log('URL:', url);
+        }
         await sendEmail({
           to: email,
           subject: templates.emailTemplates.passwordReset.subject(locale),

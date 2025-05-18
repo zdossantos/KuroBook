@@ -1,30 +1,33 @@
-'use client'
+'use client';
 
-import { AuthCard } from '@/components/auth/auth-card';
+import { AuthLayout } from '@/components/auth/auth-layout';
 import LoginForm from '@/components/auth/login-form';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const t = useTranslations('auth.login');
 
-  const footer = (
-    <>
-      <p className="text-sm text-muted-foreground">
-        {t('forgot_password')} <a href="/forgot-password" className="text-primary hover:underline">{t('reset_password')}</a>
-      </p>
-      <p className="text-sm text-muted-foreground">
-        {t('no_account')} <a href="/register" className="text-primary hover:underline">{t('register')}</a>
-      </p>
-    </>
-  );
-
   return (
-    <AuthCard 
-      title={t('title')} 
+    <AuthLayout 
+      title={t('title')}
       description={t('description')}
-      footer={footer}
     >
       <LoginForm />
-    </AuthCard>
+      <div className="space-y-2 mt-4 text-sm text-center text-muted-foreground">
+        <p>
+          {t('forgot_password')}{' '}
+          <Link href="/forgot-password" className="font-medium text-primary hover:underline">
+            {t('reset_password')}
+          </Link>
+        </p>
+        <p>
+          {t('no_account')}{' '}
+          <Link href="/register" className="font-medium text-primary hover:underline">
+            {t('register')}
+          </Link>
+        </p>
+      </div>
+    </AuthLayout>
   );
 }
