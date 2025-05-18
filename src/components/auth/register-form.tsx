@@ -60,6 +60,7 @@ export default function RegisterForm() {
           {...register('name')}
           className={errors.name ? 'border-red-500' : ''}
           disabled={isSubmitting}
+          placeholder={t('fields.namePlaceholder')}
         />
         {errors.name && (
           <p className="text-sm text-red-500">{t(errors.name.message as string)}</p>
@@ -73,6 +74,7 @@ export default function RegisterForm() {
           {...register('email')}
           className={errors.email ? 'border-red-500' : ''}
           disabled={isSubmitting}
+          placeholder="example@domain.com"
         />
         {errors.email && (
           <p className="text-sm text-red-500">{t(errors.email.message as string)}</p>
@@ -86,6 +88,7 @@ export default function RegisterForm() {
           {...register('password')}
           className={errors.password ? 'border-red-500' : ''}
           disabled={isSubmitting}
+          placeholder={t('fields.passwordPlaceholder')}
         />
         {errors.password && (
           <p className="text-sm text-red-500">{t(errors.password.message as string)}</p>

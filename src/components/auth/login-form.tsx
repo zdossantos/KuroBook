@@ -48,6 +48,7 @@ export default function LoginForm() {
                     type="email"
                     {...register('email')}
                     className={errors.email ? 'border-red-500' : ''}
+                    placeholder="example@domain.com"
                 />
                 {errors.email && (
                     <p className="text-sm text-red-500">{t(errors.email.message as string)}</p>
@@ -60,6 +61,7 @@ export default function LoginForm() {
                     type="password"
                     {...register('password')}
                     className={errors.password ? 'border-red-500' : ''}
+                    placeholder={t('fields.passwordPlaceholder')}
                 />
                 {errors.password && (
                     <p className="text-sm text-red-500">{t(errors.password.message as string)}</p>

@@ -11,8 +11,10 @@
       "description": "Enter your details to create an account.",
       "fields": {
         "name": "Name",
+        "namePlaceholder": "Enter your name",
         "email": "Email",
-        "password": "Password"
+        "password": "Password",
+        "passwordPlaceholder": "Enter your password"
       },
       "errors": {
         "name": {
@@ -37,7 +39,8 @@
       "description": "Enter your details to login.",
       "fields": {
         "email": "Email",
-        "password": "Password"
+        "password": "Password",
+        "passwordPlaceholder": "Enter your password"
       },
       "errors": {
         "email": {

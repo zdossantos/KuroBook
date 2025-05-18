@@ -11,8 +11,11 @@
       "description": "Entrez vos informations pour créer un compte.",
       "fields": {
         "name": "Nom",
+        "namePlaceholder": "Entrez votre nom",
         "email": "Email",
-        "password": "Mot de passe"
+        "emailPlaceholder": "Entrez votre email",
+        "password": "Mot de passe",
+        "passwordPlaceholder": "Entrez votre mot de passe"
       },
       "errors": {
         "name": {
@@ -37,7 +40,9 @@
       "description": "Entrez vos identifiants pour vous connecter.",
       "fields": {
         "email": "Email",
-        "password": "Mot de passe"
+        "emailPlaceholder": "Entrez votre email",
+        "password": "Mot de passe",
+        "passwordPlaceholder": "Entrez votre mot de passe"
       },
       "errors": {
         "email": {
@@ -55,7 +60,8 @@
       "description": "Entrez votre adresse email pour réinitialiser votre mot de passe.",
       "emailLabel": "Email",
       "fields": {
-        "email": "Email"
+        "email": "Email",
+        "emailPlaceholder": "Entrez votre email"
       },
       "errors": {
         "email": {
