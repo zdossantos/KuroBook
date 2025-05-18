@@ -10,28 +10,37 @@ import { signUp } from "@/app/actions/auth";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
-const registerSchema = z.object({
-  name: z.string().min(2, 'errors.name.min'),
-  email: z.string().email('errors.email.invalid'),
-  password: z.string().min(8, { message: 'errors.password.min' })
-  .max(20, { message: 'errors.password.max' })
-  .refine((password) => /[A-Z]/.test(password), {
-    message: 'errors.password.uppercase',
-  })
-  .refine((password) => /[a-z]/.test(password), {
-    message: 'errors.password.lowercase',
-  })
-  .refine((password) => /[0-9]/.test(password), { message: 'errors.password.number' })
-  .refine((password) => /[!@#$%^&*+]/.test(password), {
-    message: 'errors.password.special',
-  })
-});
-
-type RegisterFormData = z.infer<typeof registerSchema>;
+type RegisterFormData = {
+  name: string;
+  email: string;
+  password: string;
+};
 
 export default function RegisterForm() {
   const router = useRouter();
   const t = useTranslations('auth.register');
+  const commonT = useTranslations('common');
+  
+  const registerSchema = z.object({
+    name: z.string().min(2, commonT('errors.name.min')),
+    email: z.string().email(commonT('errors.email.invalid')),
+    password: z.string()
+      .min(8, commonT('errors.password.min'))
+      .max(20, commonT('errors.password.max'))
+      .refine((password) => /[A-Z]/.test(password), {
+        message: commonT('errors.password.uppercase'),
+      })
+      .refine((password) => /[a-z]/.test(password), {
+        message: commonT('errors.password.lowercase'),
+      })
+      .refine((password) => /[0-9]/.test(password), {
+        message: commonT('errors.password.number'),
+      })
+      .refine((password) => /[!@#$%^&*+]/.test(password), {
+        message: commonT('errors.password.special'),
+      })
+  });
+
   const {
     register,
     handleSubmit,
@@ -53,49 +62,49 @@ export default function RegisterForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="name">{t('fields.name')}</Label>
+        <Label htmlFor="name">{commonT('fields.name')}</Label>
         <Input
           id="name"
           type="text"
           {...register('name')}
           className={errors.name ? 'border-red-500' : ''}
           disabled={isSubmitting}
-          placeholder={t('fields.namePlaceholder')}
+          placeholder={commonT('fields.namePlaceholder')}
         />
         {errors.name && (
-          <p className="text-sm text-red-500">{t(errors.name.message as string)}</p>
+          <p className="text-sm text-red-500">{errors.name.message}</p>
         )}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="email">{t('fields.email')}</Label>
+        <Label htmlFor="email">{commonT('fields.email')}</Label>
         <Input
           id="email"
           type="email"
           {...register('email')}
           className={errors.email ? 'border-red-500' : ''}
           disabled={isSubmitting}
-          placeholder="example@domain.com"
+          placeholder={commonT('fields.emailPlaceholder')}
         />
         {errors.email && (
-          <p className="text-sm text-red-500">{t(errors.email.message as string)}</p>
+          <p className="text-sm text-red-500">{errors.email.message}</p>
         )}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="password">{t('fields.password')}</Label>
+        <Label htmlFor="password">{commonT('fields.password')}</Label>
         <Input
           id="password"
           type="password"
           {...register('password')}
           className={errors.password ? 'border-red-500' : ''}
           disabled={isSubmitting}
-          placeholder={t('fields.passwordPlaceholder')}
+          placeholder={commonT('fields.passwordPlaceholder')}
         />
         {errors.password && (
-          <p className="text-sm text-red-500">{t(errors.password.message as string)}</p>
+          <p className="text-sm text-red-500">{errors.password.message}</p>
         )}
       </div>
       <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {t('title')}
+        {commonT('buttons.register')}
       </Button>
     </form>
   );

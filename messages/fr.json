@@ -1,100 +1,78 @@
 {
-  "auth": {
-    "layout": {
-      "welcomeTitle": "Bienvenue sur KuroBook",
-      "welcomeSubtitle": "Réservez vos créneaux, partagez vos événements, Kuro s'occupe du reste."
+  "common": {
+    "fields": {
+      "name": "Nom",
+      "namePlaceholder": "Entrez votre nom",
+      "email": "Email",
+      "emailPlaceholder": "Entrez votre email",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "confirmPasswordPlaceholder": "Confirmez votre mot de passe"
     },
-    "alreadyHaveAccount": "Vous avez déjà un compte ? ",
-    "signIn": "Se connecter",
-    "register": {
-      "title": "Créer un compte",
-      "description": "Entrez vos informations pour créer un compte.",
-      "fields": {
-        "name": "Nom",
-        "namePlaceholder": "Entrez votre nom",
-        "email": "Email",
-        "emailPlaceholder": "Entrez votre email",
-        "password": "Mot de passe",
-        "passwordPlaceholder": "Entrez votre mot de passe"
+    "errors": {
+      "email": {
+        "invalid": "Adresse email invalide",
+        "credentials": "Email ou mot de passe invalide",
+        "error": "Oups ! Une erreur s'est produite pendant l'envoi du lien de réinitialisation."
       },
-      "errors": {
-        "name": {
-          "min": "Le nom doit contenir au moins 2 caractères"
-        },
-        "email": {
-          "invalid": "Adresse email invalide",
-          "exists": "Cette adresse email est déjà utilisée"
-        },
-        "password": {
-          "min": "Le mot de passe doit contenir au moins 8 caractères",
-          "max": "Le mot de passe ne doit pas dépasser 20 caractères",
-          "uppercase": "Le mot de passe doit contenir au moins une lettre majuscule",
-          "lowercase": "Le mot de passe doit contenir au moins une lettre minuscule",
-          "number": "Le mot de passe doit contenir au moins un chiffre",
-          "special": "Le mot de passe doit contenir au moins un caractère spécial"
-        }
-      }
-    },
-    "login": {
-      "title": "Connexion",
-      "description": "Entrez vos identifiants pour vous connecter.",
-      "fields": {
-        "email": "Email",
-        "emailPlaceholder": "Entrez votre email",
-        "password": "Mot de passe",
-        "passwordPlaceholder": "Entrez votre mot de passe"
-      },
-      "errors": {
-        "email": {
-          "invalid": "Adresse email invalide",
-          "credentials": "Email ou mot de passe invalide"
-        }
-      },
-      "no_account": "Vous n'avez pas de compte ?",
-      "register": "S'inscrire",
-      "forgot_password": "Mot de passe oublié ?",
-      "reset_password": "Réinitialiser le mot de passe"
-    },
-    "forgotPassword": {
-      "title": "Mot de passe oublié",
-      "description": "Entrez votre adresse email pour réinitialiser votre mot de passe.",
-      "emailLabel": "Email",
-      "fields": {
-        "email": "Email",
-        "emailPlaceholder": "Entrez votre email"
-      },
-      "errors": {
-        "email": {
-          "invalid": "Adresse email invalide",
-          "error": "Oups ! Une erreur s'est produite pendant l'envoi du lien de réinitialisation."
-        }
-      },
-      "submit": "Envoyer le lien de réinitialisation",
-      "success": "Un lien de réinitialisation a été envoyé à votre adresse email."
-    },
-    "resetPassword": {
-      "title": "Réinitialisation du mot de passe",
-      "description": "Entrez votre nouveau mot de passe.",
-      "passwordLabel": "Mot de passe",
-      "confirmPasswordLabel": "Confirmer le mot de passe",
-      "passwordPlaceholder": "Entrez votre nouveau mot de passe",
-      "confirmPasswordPlaceholder": "Confirmer votre nouveau mot de passe",
-      "fields": {
-        "password": "Mot de passe",
-        "confirmPassword": "Confirmer le mot de passe"
-      },
-      "errors": {
+      "password": {
         "min": "Le mot de passe doit contenir au moins 8 caractères",
         "max": "Le mot de passe ne doit pas dépasser 20 caractères",
         "doesNotMatch": "Les mots de passe ne correspondent pas",
         "uppercase": "Le mot de passe doit contenir au moins une lettre majuscule",
         "lowercase": "Le mot de passe doit contenir au moins une lettre minuscule",
         "number": "Le mot de passe doit contenir au moins un chiffre",
-        "special": "Le mot de passe doit contenir au moins un caractère spécial",
-        "invalidToken": "Le token est invalide"
+        "special": "Le mot de passe doit contenir au moins un caractère spécial"
       },
-      "submitButton": "Réinitialiser le mot de passe",
-      "success": "Le mot de passe a été réinitialisé avec succès"
+      "name": {
+        "min": "Le nom doit contenir au moins 2 caractères"
+      },
+      "token": {
+        "invalid": "Le token est invalide"
+      }
+    },
+    "buttons": {
+      "signIn": "Se connecter",
+      "register": "S'inscrire",
+      "forgotPassword": "Mot de passe oublié ?",
+      "resetPassword": "Réinitialiser le mot de passe",
+      "sendResetLink": "Envoyer le lien de réinitialisation"
+    },
+    "messages": {
+      "resetLinkSent": "Un lien de réinitialisation a été envoyé à votre adresse email.",
+      "passwordResetSuccess": "Le mot de passe a été réinitialisé avec succès"
+    }
+  },
+  "auth": {
+    "layout": {
+      "welcomeTitle": "Bienvenue sur KuroBook",
+      "welcomeSubtitle": "Réservez vos créneaux, partagez vos événements, Kuro s'occupe du reste."
+    },
+    "alreadyHaveAccount": "Vous avez déjà un compte ? ",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "register": {
+      "title": "Créer un compte",
+      "description": "Entrez vos informations pour créer un compte.",
+      "errors": {
+        "email": {
+          "exists": "Cette adresse email est déjà utilisée"
+        }
+      }
+    },
+    "login": {
+      "title": "Connexion",
+      "description": "Entrez vos identifiants pour vous connecter."
+    },
+    "forgotPassword": {
+      "title": "Mot de passe oublié",
+      "description": "Entrez votre adresse email pour réinitialiser votre mot de passe.",
+      "emailLabel": "Email"
+    },
+    "resetPassword": {
+      "title": "Réinitialisation du mot de passe",
+      "description": "Entrez votre nouveau mot de passe.",
+      "passwordLabel": "Nouveau mot de passe"
     }
   },
   "email": {

@@ -10,40 +10,43 @@ import { useTranslations } from 'next-intl';
 import { forgotPassword } from '@/app/actions/auth';
 import { toast } from "sonner"
 
-const formSchema = z.object({
-  email: z.string().email('Email invalide'),
-});
-
-type FormValues = z.infer<typeof formSchema>;
+type ForgotPasswordFormData = {
+  email: string;
+};
 
 export default function ForgotPasswordForm() {
   const t = useTranslations('auth.forgotPassword');
+  const commonT = useTranslations('common');
 
-  const form = useForm<FormValues>({
+  const formSchema = z.object({
+    email: z.string().email(commonT('errors.email.invalid')),
+  });
+
+  const form = useForm<ForgotPasswordFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: '',
     },
   });
 
-  const handleSubmit = async (data: FormValues) => {
+  const handleSubmit = async (data: ForgotPasswordFormData) => {
     try {
       await forgotPassword(data);
-      toast.success(t('success'));
+      toast.success(commonT('messages.resetLinkSent'));
     } catch (err) {
-      form.setError('email', { message: t('errors.email.error') });
-      toast.error(t('errors.email.error'));
+      form.setError('email', { message: commonT('errors.email.error') });
+      toast.error(commonT('errors.email.error'));
     }
   };
 
   return (
     <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
       <div>
-        <Label htmlFor="email">{t('emailLabel')}</Label>
+        <Label htmlFor="email">{commonT('fields.email')}</Label>
         <Input
           id="email"
           type="email"
-          placeholder="example@domain.com"
+          placeholder={commonT('fields.emailPlaceholder')}
           {...form.register('email')}
         />
         {form.formState.errors.email && (
@@ -54,7 +57,7 @@ export default function ForgotPasswordForm() {
       </div>
 
       <Button type="submit">
-        {t('submit')}
+        {commonT('buttons.sendResetLink')}
       </Button>
     </form>
   );

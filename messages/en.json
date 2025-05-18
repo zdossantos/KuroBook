@@ -1,97 +1,78 @@
 {
-  "auth": {
-    "layout": {
-      "welcomeTitle": "Welcome to KuroBook",
-      "welcomeSubtitle": "Reserve your slots, share your events, Kuro takes care of the rest."
+  "common": {
+    "fields": {
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password"
     },
-    "alreadyHaveAccount": "Already have an account? ",
-    "signIn": "Sign in",
-    "register": {
-      "title": "Create Account",
-      "description": "Enter your details to create an account.",
-      "fields": {
-        "name": "Name",
-        "namePlaceholder": "Enter your name",
-        "email": "Email",
-        "password": "Password",
-        "passwordPlaceholder": "Enter your password"
+    "errors": {
+      "email": {
+        "invalid": "Invalid email address",
+        "credentials": "Invalid email or password",
+        "error": "Oops! Something went wrong while sending the reset email"
       },
-      "errors": {
-        "name": {
-          "min": "Name must be at least 2 characters"
-        },
-        "email": {
-          "invalid": "Invalid email address",
-          "exists": "This email is already registered"
-        },
-        "password": {
-          "min": "Password must be at least 8 characters",
-          "max": "Password must be at most 20 characters",
-          "uppercase": "Password must contain at least one uppercase letter",
-          "lowercase": "Password must contain at least one lowercase letter",
-          "number": "Password must contain at least one number",
-          "special": "Password must contain at least one special character"
-        }
-      }
-    },
-    "login": {
-      "title": "Login",
-      "description": "Enter your details to login.",
-      "fields": {
-        "email": "Email",
-        "password": "Password",
-        "passwordPlaceholder": "Enter your password"
-      },
-      "errors": {
-        "email": {
-          "invalid": "Invalid email address",
-          "credentials": "Invalid email or password"
-        }
-      },
-      "no_account": "Don't have an account?",
-      "register": "Register",
-      "forgot_password": "Forgot Password?",
-      "reset_password": "Reset Password"
-    },
-    "forgotPassword": {
-      "title": "Forgot Password",
-      "description": "Enter your email to reset your password.",
-      "emailLabel": "Email",
-      "fields": {
-        "email": "Email"
-      },
-      "errors": {
-        "email": {
-          "invalid": "Invalid email address",
-          "error": "Oops! Something went wrong while sending the reset email"
-        }
-      },
-      "submit": "Send Reset Password Link",
-      "success": "Reset password link sent successfully"
-    },
-    "resetPassword": {
-      "title": "Reset Password",
-      "description": "Enter your new password.",
-      "passwordLabel": "Password",
-      "confirmPasswordLabel": "Confirm Password",
-      "passwordPlaceholder": "Enter your new password",
-      "confirmPasswordPlaceholder": "Confirm your new password",
-      "fields": {
-        "password": "Password",
-        "confirmPassword": "Confirm Password"
-      },
-      "errors": {
+      "password": {
         "min": "Password must be at least 8 characters",
         "max": "Password must be at most 20 characters",
         "doesNotMatch": "Passwords do not match",
         "uppercase": "Password must contain at least one uppercase letter",
         "lowercase": "Password must contain at least one lowercase letter",
         "number": "Password must contain at least one number",
-        "special": "Password must contain at least one special character",
-        "invalidToken": "Invalid token"
+        "special": "Password must contain at least one special character"
       },
-      "submitButton": "Reset Password",
-      "success": "Password reset successfully"
+      "name": {
+        "min": "Name must be at least 2 characters"
+      },
+      "token": {
+        "invalid": "Invalid token"
+      }
+    },
+    "buttons": {
+      "signIn": "Sign in",
+      "register": "Register",
+      "forgotPassword": "Forgot Password?",
+      "resetPassword": "Reset Password",
+      "sendResetLink": "Send Reset Password Link"
+    },
+    "messages": {
+      "resetLinkSent": "Reset password link sent successfully",
+      "passwordResetSuccess": "Password reset successfully"
+    }
+  },
+  "auth": {
+    "layout": {
+      "welcomeTitle": "Welcome to KuroBook",
+      "welcomeSubtitle": "Reserve your slots, share your events, Kuro takes care of the rest."
+    },
+    "alreadyHaveAccount": "Already have an account? ",
+    "noAccount": "Don't have an account?",
+    "register": {
+      "title": "Create Account",
+      "description": "Enter your details to create an account.",
+      "errors": {
+        "email": {
+          "exists": "This email is already registered"
+        }
+      }
+    },
+    "login": {
+      "title": "Login",
+      "description": "Enter your details to login."
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "description": "Enter your email to reset your password.",
+      "emailLabel": "Email"
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "description": "Enter your new password.",
+      "passwordLabel": "New Password"
     }
   },
   "email": {

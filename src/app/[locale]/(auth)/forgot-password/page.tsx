@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 export default function ForgotPasswordPage() {
   const t = useTranslations('auth');
+  const commonT = useTranslations('common');
 
   return (
     <AuthLayout 
@@ -17,7 +18,7 @@ export default function ForgotPasswordPage() {
       <div className="mt-4 text-sm text-center text-muted-foreground">
         {t('alreadyHaveAccount')}
         <Link href="/login" className="ml-1 font-medium text-primary hover:text-primary/80">
-          {t('signIn')}
+          {commonT('buttons.signIn')}
         </Link>
       </div>
     </AuthLayout>
