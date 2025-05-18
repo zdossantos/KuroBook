@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { motion } from 'motion/react';
 
 type AuthLayoutProps = {
   children: ReactNode;
@@ -62,8 +63,15 @@ export function AuthLayout({ children, title, description }: AuthLayoutProps) {
       <div className="w-1/2 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center p-12">
         <div className="relative w-full h-full max-w-xl">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-3xl -z-10" />
-          <div className="relative z-10 flex flex-col items-center justify-center h-full">
-            <div className="relative w-64 h-64">
+          <motion.div
+            className="relative z-10 flex flex-col items-center justify-center h-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div
+              className="relative w-64 h-64"
+            >
               <Image
                 src="/image/kuro/kuro.png"
                 alt="Kuro Mascot"
@@ -78,13 +86,16 @@ export function AuthLayout({ children, title, description }: AuthLayoutProps) {
             <p className="mt-2 text-center text-muted-foreground max-w-sm">
               {t('welcomeSubtitle')}
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Right side - Form */}
       <div className="w-1/2 flex flex-col justify-center p-16">
-        <div className="w-full max-w-md mx-auto">
+        <motion.div className="w-full max-w-md mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}>
           <div className="mb-8 text-center">
             <h1 className="text-3xl font-bold text-foreground mb-2">
               {title}
@@ -92,7 +103,7 @@ export function AuthLayout({ children, title, description }: AuthLayoutProps) {
             <p className="text-muted-foreground">{description}</p>
           </div>
           {children}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
