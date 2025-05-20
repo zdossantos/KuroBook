@@ -6,7 +6,7 @@ config({ path: ".env" });
 export default defineConfig({
   out: './drizzle', 
   schema: [
-    './app/server/db/auth-schema.ts'
+    './src/app/server/db/auth-schema.ts'
   ],
   dialect: 'postgresql',
   dbCredentials: {

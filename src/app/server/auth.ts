@@ -28,9 +28,6 @@ export const auth = betterAuth({
       try {
         const locale = await getLocale();
         const templates = await import('@/app/server/email/templates');
-        if(process.env.NODE_ENV === 'development') {
-          console.log('URL:', url);
-        }
         await sendEmail({
           to: email,
           subject: templates.emailTemplates.passwordReset.subject(locale),
@@ -54,8 +51,7 @@ export const auth = betterAuth({
   },
   plugins: [nextCookies()],
   secret: process.env.BETTER_AUTH_SECRET,
-  baseURL: process.env.BETTER_AUTH_BASE_URL,
-  debug: process.env.APP_ENV === 'dev'
+  baseURL: process.env.BETTER_AUTH_BASE_URL
 });
 // Exporter aussi le handler pour l'API
 export const { GET, POST } = toNextJsHandler(auth.handler);

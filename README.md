@@ -73,16 +73,12 @@ Then, uncomment `app/api/seed.ts` and hit `http://localhost:3000/api/seed` to se
 
 Next, copy the `.env.example` file to `.env` and update the values. Follow the instructions in the `.env.example` file to set up your GitHub OAuth application.
 
-```bash
-npm i -g vercel
-vercel link
-vercel env pull
-```
-
 Finally, run the following commands to start the development server:
 
 ```
 pnpm install
+npx drizzle-kit generate
+npx drizzle-kit migrate
 pnpm dev
 ```
 
