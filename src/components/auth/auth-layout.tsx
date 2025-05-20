@@ -1,6 +1,6 @@
 'use client';
 
-import { useMediaQuery } from '@uidotdev/usehooks';
+import { useMediaQuery } from 'usehooks-ts';
 import { ReactNode } from 'react';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
